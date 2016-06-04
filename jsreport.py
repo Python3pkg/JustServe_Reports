@@ -3,6 +3,9 @@
 Helper script to pull data from https://www.justserve.org.
 """
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 def get_project_count(zipcode, radius="5", driver="firefox"):
@@ -12,7 +15,25 @@ def get_project_count(zipcode, radius="5", driver="firefox"):
     """
     num_projects = "Not found"
     driver = webdriver.Chrome()
-    driver.get('https://www.justserve.org')
+    try:
+        driver.get('https://www.justserve.org')
+        zip_box = driver.find_element_by_css_selector("input.form__search__input")
+        zip_box.send_keys(zipcode)
+        search_btn = driver.find_element_by_css_selector("input.js-loadable")
+        search_btn.click()
+        # wait up to 10 seconds for the results
+        wait_element = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located(
+                #(By.CSS_SELECTOR, "span.project-count__num.ng-binding")
+                #(By.CSS_SELECTOR, "small.project-count")
+                (By.CSS_SELECTOR, "ul.js-flagstones")
+            )
+        )
+        results_element = driver.find_element_by_css_selector("span.project-count__num.ng-binding")
+        num_projects = results_element.text
+    finally:
+        driver.get_screenshot_as_file("%s.png" % zipcode)
+        driver.quit()
     return num_projects
 
 
