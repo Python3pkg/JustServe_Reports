@@ -2,7 +2,7 @@
 Simple tool to pull basic reporting data out of JustServe (https://www.justserve.org/). 
 
 ## Background
-JustServe is a wonderful resource to bring volunteers and service organizations together. For those that are responsible for training and awareness, however, the reporting tools are...lacking. How is one to measure whether more projects are being added to the site? This scripts aims to help answer that question.
+JustServe is a wonderful resource to bring volunteers and service organizations together. For those that are responsible for training and awareness, however, the reporting tools are...lacking. How is one to measure whether more projects are being added to the site? This script aims to help answer that question.
 
 ## What It Does
 `jsreport.py` is a script that interacts with the JustServe website to tell you how many projects are listed near a specific zipcode. You can specify the zipcode and search radius, along with some technical details.
@@ -51,4 +51,4 @@ JustServe is a wonderful resource to bring volunteers and service organizations 
  * If you want to use the Chrome or PhantomJS Selenium WebDrivers, you will need to ensure they are installed.
  	* The `chromedriver-installer` package is in the `requirements.txt` file. Your mileage may vary.
 
-Please note: I do not provide technical support for environment setup. You are on your own for that. I will respond to pull requests for bug fixes, though.
+Please note: I do not provide technical support for environment setup; you are on your own for that. I will respond to pull requests for bug fixes, though.
