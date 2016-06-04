@@ -1,2 +1,2 @@
+chromedriver-installer==0.0.4
 selenium==2.53.2
-splinter==0.7.3

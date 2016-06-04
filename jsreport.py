@@ -2,7 +2,7 @@
 """
 Helper script to pull data from https://www.justserve.org.
 """
-from splinter import Browser
+from selenium import webdriver
 
 
 def get_project_count(zipcode, radius="5", driver="firefox"):
@@ -11,29 +11,8 @@ def get_project_count(zipcode, radius="5", driver="firefox"):
     within the given radius.
     """
     num_projects = "Not found"
-    with Browser(driver) as browser:
-        browser.visit('https://www.justserve.org/')
-        browser.screenshot("1.png")
-        search_box = browser.find_by_css("input.form__search__input").first
-        search_box.fill(zipcode)
-        #browser.find_by_css("a.js-toggle-form-filters").first.click()
-        
-        #radius_select = browser.find_by_css("select.js-miles").first
-        #radius_select.click()
-        #radius_select.select(radius)
-        #browser.select("js-miles", radius)
-        #browser.find_option_by_text("%s miles" % radius).first.click()
-        #for option in radius_select.find_by_tag("option"):
-        #    if option.value == radius:
-        #        option.click()
-        #        break
-
-        #browser.find_by_css("input.js-loadable").first.click()
-        browser.screenshot("2.png")
-        #btn = browser.find_by_css("input.js-loadable").first
-        #browser.execute_script("arguments[0].click();", btn)
-        
-        #num_projects = browser.find_by_css("project-count__num").first.value
+    driver = webdriver.Chrome()
+    driver.get('https://www.justserve.org')
     return num_projects
 
 
