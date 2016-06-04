@@ -7,6 +7,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+import pdb
+
 
 def get_project_count(zipcode, radius="5", driver="firefox"):
     """
@@ -16,21 +18,30 @@ def get_project_count(zipcode, radius="5", driver="firefox"):
     num_projects = "Not found"
     driver = webdriver.Chrome()
     try:
+        # Load the page
         driver.get('https://www.justserve.org')
+        # search by zipcode
         zip_box = driver.find_element_by_css_selector("input.form__search__input")
         zip_box.send_keys(zipcode)
+        # click Search
         search_btn = driver.find_element_by_css_selector("input.js-loadable")
         search_btn.click()
         # wait up to 10 seconds for the results
+        # the ul appears to hold the search results, 
+        # that is how we know the search is complete.
         wait_element = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(
-                #(By.CSS_SELECTOR, "span.project-count__num.ng-binding")
-                #(By.CSS_SELECTOR, "small.project-count")
                 (By.CSS_SELECTOR, "ul.js-flagstones")
             )
         )
-        results_element = driver.find_element_by_css_selector("span.project-count__num.ng-binding")
-        num_projects = results_element.text
+        #pdb.set_trace()
+        # Get the project count
+        # Note, the html has several <small> tags with almost every option
+        # of result (i.e. none found, etc). We want the one that is visible.
+        smalls = driver.find_elements_by_css_selector("small.project-count")
+        for e in smalls:
+            if e.is_displayed():
+                num_projects = e.text
     finally:
         driver.get_screenshot_as_file("%s.png" % zipcode)
         driver.quit()
