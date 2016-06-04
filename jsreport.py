@@ -75,14 +75,16 @@ def get_project_count(zipcode, radius="5", driver="firefox"):
                     num_projects = 0
     finally:
         driver.quit()
-    return num_projects
+    return str(num_projects)
 
 
 
 
 if __name__=='__main__':
     # Main entry point, when run as a script
+    from datetime import datetime
     import argparse
+    # Collect the command-line arguments
     parser = argparse.ArgumentParser(
             description="Retrieve the number of JustServe projects at a zipcode.")
     parser.add_argument("zipcode", 
@@ -93,7 +95,19 @@ if __name__=='__main__':
     parser.add_argument("-d", "--driver", default="firefox",
             choices=["firefox", "chrome", "phantomjs"],
             help="The WebDriver to use. Defaults to firefox.")
+    parser.add_argument("-o", "--output", default="csv",
+            choices=["csv", "json"],
+            help="The output format. Defaults to CSV.")
     args = parser.parse_args()
+    # Go get the project count
     project_count = get_project_count(args.zipcode, args.radius, args.driver)
-    print "Projects:", project_count
-
+    # get today's date
+    now = datetime.now().strftime('%Y-%m-%d')
+    # Handle the output
+    if args.output=='csv':
+        print "%s,%s,%s,%s" % (now, args.zipcode, args.radius, project_count)
+    else:
+        import json
+        o = {'date': now, 'zipcode': args.zipcode, 'radius': args.radius,
+                'project_count': project_count}
+        print json.dumps(o)
