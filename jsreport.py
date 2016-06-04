@@ -15,7 +15,7 @@ def get_project_count(zipcode, radius="5", driver="firefox"):
     Returns the number of projects on JustServe.org at the given zipcode,
     within the given radius.
     """
-    num_projects = "Not found"
+    num_projects = "0"
     driver = webdriver.Chrome()
     try:
         # Load the page
@@ -41,7 +41,9 @@ def get_project_count(zipcode, radius="5", driver="firefox"):
         smalls = driver.find_elements_by_css_selector("small.project-count")
         for e in smalls:
             if e.is_displayed():
-                num_projects = e.text
+                num_element = e.find_element_by_css_selector("span.project-count__num.ng-binding")
+                num_projects = num_element.text
+                break
     finally:
         driver.get_screenshot_as_file("%s.png" % zipcode)
         driver.quit()
@@ -51,7 +53,7 @@ def get_project_count(zipcode, radius="5", driver="firefox"):
 
 
 if __name__=='__main__':
-    # Main entry point
+    # Main entry point, when run as a script
     import argparse
     parser = argparse.ArgumentParser(
             description="Retrieve the number of JustServe projects at a zipcode.")
