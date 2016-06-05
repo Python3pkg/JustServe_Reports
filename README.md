@@ -45,7 +45,7 @@ JustServe is a wonderful resource to bring volunteers and service organizations 
 
 ## Dependancies/Setup
  * This is a Python script, tested with version 2.7.11, but it should work with others
- * I highly recommend using a virualenv, if you can
+ * I highly recommend using a virtualenv, if you can
  * Use `pip` to install the python requirements:
    `pip install -r requirements.txt`
  * If you want to use the Chrome or PhantomJS Selenium WebDrivers, you will need to ensure they are installed.
