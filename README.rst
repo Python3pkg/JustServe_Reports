@@ -12,7 +12,8 @@ What It Does
 
 Usage
 -----
-::
+This usage is available, as demonstrated below, from the command-line::
+
     $ js-zipcode.py --help
     usage: jsreport.py [-h] [-r {5,10,15,25,50,75}]
                        [-d {firefox,chrome,phantomjs}] [-o {human,csv,json}]
@@ -33,12 +34,11 @@ Usage
       -o {human,csv,json}, --output {human,csv,json}
                             The output format. Defaults to human-readable.
 
-This usage is available, as demonstrated above, from the command-line
                         
                         
 Examples
 --------
-::
+Example of running `js-zipcode` to pull data.::
     $ js-zipcode.py 20500
     6 projects within a 5 mile radius of 20500
     $ js-zipcode.py -r 10 20500
@@ -52,13 +52,12 @@ Examples
     $ js-zipcode.py -r 75 20500
     106 projects within a 75 mile radius of 20500
 
-Example of running `js-zipcode` to pull data.
 
 Dependancies/Setup
 ------------------
 * This is a Python script, tested with version 2.7.11, but it should work with others
 * I highly recommend using a virtualenv, if you can
-* Use `pip` to install the python requirements::
+* Use `pip` to install the python requirements
     `pip install -r requirements.txt`
 * If you want to use the Chrome or PhantomJS Selenium WebDrivers, you will need to ensure they are installed.
   * The `chromedriver-installer` package is in the `requirements.txt` file. Your mileage may vary.
