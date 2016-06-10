@@ -19,7 +19,7 @@ setup(name='jsreport',
           'Operating System :: OS Independent',
           'Programming Language :: Python :: 2.7',
           'Topic :: Other/Nonlisted Topic',
-      ]
+      ],
       url='https://github.com/abadstubner/JustServe_Reports',
       author='abadstubner',
       author_email='andrew+pypi@badstubner.com',
