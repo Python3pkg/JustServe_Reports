@@ -6,7 +6,7 @@ def readme():
 
 
 setup(name='jsreport',
-      version='0.2.3',
+      version='0.2.4',
       description='Simple tool to pull basic reporting data out of JustServe (https://www.justserve.org/).',
       long_description=readme(),
       classifiers=[

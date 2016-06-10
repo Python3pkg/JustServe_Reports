@@ -1,13 +1,18 @@
-# JustServe Reports
+JustServe Reports
+=================
 Simple tool to pull basic reporting data out of JustServe (https://www.justserve.org/). 
 
-## Background
+Background
+----------
 JustServe is a wonderful resource to bring volunteers and service organizations together. For those that are responsible for training and awareness, however, the reporting tools are...lacking. How is one to measure whether more projects are being added to the site? This script aims to help answer that question.
 
-## What It Does
+What It Does
+------------
 `jsreport.py` is a script that interacts with the JustServe website to tell you how many projects are listed near a specific zipcode. You can specify the zipcode and search radius, along with some technical details.
 
-## Usage
+Usage
+-----
+::
 	$ ./jsreport.py --help
 	usage: jsreport.py [-h] [-r {5,10,15,25,50,75}]
 	                   [-d {firefox,chrome,phantomjs}] [-o {human,csv,json}]
@@ -29,7 +34,9 @@ JustServe is a wonderful resource to bring volunteers and service organizations 
 	                        The output format. Defaults to human-readable.
                         
                         
-## Examples
+Examples
+--------
+::
 	$ ./jsreport.py 20500
 	6 projects within a 5 mile radius of 20500
 	$ ./jsreport.py -r 10 20500
@@ -43,7 +50,8 @@ JustServe is a wonderful resource to bring volunteers and service organizations 
 	$ ./jsreport.py -r 75 20500
 	106 projects within a 75 mile radius of 20500
 
-## Dependancies/Setup
+Dependancies/Setup
+------------------
  * This is a Python script, tested with version 2.7.11, but it should work with others
  * I highly recommend using a virtualenv, if you can
  * Use `pip` to install the python requirements:
