@@ -6,7 +6,7 @@ def readme():
 
 
 setup(name='jsreport',
-      version='0.2.2',
+      version='0.2.3',
       description='Simple tool to pull basic reporting data out of JustServe (https://www.justserve.org/).',
       long_description=readme(),
       classifiers=[
@@ -28,4 +28,5 @@ setup(name='jsreport',
       install_requires=[
           'selenium',
       ],
+      scripts=['bin/js-zipcode.py'],
       zip_safe=False)
