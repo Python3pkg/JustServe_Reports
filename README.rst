@@ -39,6 +39,7 @@ This usage is available, as demonstrated below, from the command-line::
 Examples
 --------
 Example of running `js-zipcode` to pull data.::
+
     $ js-zipcode.py 20500
     6 projects within a 5 mile radius of 20500
     $ js-zipcode.py -r 10 20500
