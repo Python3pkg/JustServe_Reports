@@ -56,11 +56,15 @@ Example of running ``js-zipcode`` to pull data::
 
 Dependancies/Setup
 ------------------
+
 - This is a Python script, tested with version 2.7.11, but it should work with others
 - I highly recommend using a virtualenv, if you can
 - Use ``pip`` to install the python requirements::
-    pip install -r requirements.txt
+
+  ``$ pip install -r requirements.txt``
+
 - If you want to use the Chrome or PhantomJS Selenium WebDrivers, you will need to ensure they are installed.
+
   - The ``chromedriver-installer`` package is in the ``requirements.txt`` file. Your mileage may vary.
 
 Please note: I do not provide technical support for environment setup; you are on your own for that. I will respond to pull requests for bug fixes, though.
