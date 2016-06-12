@@ -1,17 +1,45 @@
 JustServe Reports
 =================
-Simple tool to pull basic reporting data out of JustServe (https://www.justserve.org/). 
+A simple tool to pull basic reporting data out of JustServe 
+(https://www.justserve.org/). 
 
 Background
 ----------
-JustServe is a wonderful resource to bring volunteers and service organizations together. For those that are responsible for training and awareness, however, the reporting tools are...lacking. How is one to measure whether more projects are being added to the site? This script aims to help answer that question.
+JustServe is a wonderful resource to bring volunteers and service organizations 
+together. For those that are responsible for training and awareness, however, 
+the reporting tools are...lacking. How is one to measure whether more projects 
+are being added to the site? This script aims to help answer that question.
 
 What It Does
 ------------
-``js-zipcode.py`` is a script that interacts with the JustServe website to tell you how many projects are listed near a specific zipcode. You can specify the zipcode and search radius, along with some technical details.
+The ``jsreport`` module contains code that uses Selenium to interact with the
+JustServe website to retrieve data, typically for reporting purposes.
 
-Usage
------
+``js-zipcode.py`` is a script that interacts with the ``jsreport`` module
+to tell you how many projects are listed near a specific zipcode. You can 
+specify the zipcode and search radius, along with some technical details.
+
+Installation
+------------
+First, I highly recommend using a ``virtualenv``.
+
+The preferred method of installation is to use ``pip``::
+
+    $ pip install jsreport
+
+``pip`` will install the ``jsreport`` package to the proper location and it
+will install the ``js-zipcode.py`` script to the proper ``bin`` location on
+your PATH.
+    
+``pip`` will also install the selenium package, if it is not already installed.
+
+The default web driver for Selenium is Firefox. If you want to use one of the 
+other web drivers, you must install them to your system yourself. You may
+consider installing the ``chromedriver-installer`` package using ``pip``.
+Information on the PhantomJS web driver can be found at http://phantomjs.org/.
+
+Script Usage
+------------
 This usage is available, as demonstrated below, from the command-line::
 
     $ js-zipcode.py --help
@@ -54,17 +82,11 @@ Example of running ``js-zipcode`` to pull data::
     106 projects within a 75 mile radius of 20500
 
 
-Dependancies/Setup
-------------------
+Other Notes/Disclaimers
+-----------------------
 
-- This is a Python script, tested with version 2.7.11, but it should work with others
-- I highly recommend using a virtualenv, if you can
-- Use ``pip`` to install the python requirements::
-
-  ``$ pip install -r requirements.txt``
-
-- If you want to use the Chrome or PhantomJS Selenium WebDrivers, you will need to ensure they are installed.
-
-  - The ``chromedriver-installer`` package is in the ``requirements.txt`` file. Your mileage may vary.
-
-Please note: I do not provide technical support for environment setup; you are on your own for that. I will respond to pull requests for bug fixes, though.
+- This is a Python script, tested with version 2.7.11, but it should work with 
+  others
+- Please note: I do not provide technical support for environment setup; you 
+  are on your own for that. 
+- I will respond to pull requests for bug fixes, though.
