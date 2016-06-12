@@ -8,14 +8,14 @@ JustServe is a wonderful resource to bring volunteers and service organizations 
 
 What It Does
 ------------
-`jsreport.py` is a script that interacts with the JustServe website to tell you how many projects are listed near a specific zipcode. You can specify the zipcode and search radius, along with some technical details.
+``js-zipcode.py`` is a script that interacts with the JustServe website to tell you how many projects are listed near a specific zipcode. You can specify the zipcode and search radius, along with some technical details.
 
 Usage
 -----
 This usage is available, as demonstrated below, from the command-line::
 
     $ js-zipcode.py --help
-    usage: jsreport.py [-h] [-r {5,10,15,25,50,75}]
+    usage: js-zipcode.py [-h] [-r {5,10,15,25,50,75}]
                        [-d {firefox,chrome,phantomjs}] [-o {human,csv,json}]
                        zipcode
     
@@ -38,7 +38,7 @@ This usage is available, as demonstrated below, from the command-line::
                         
 Examples
 --------
-Example of running `js-zipcode` to pull data.::
+Example of running ``js-zipcode`` to pull data::
 
     $ js-zipcode.py 20500
     6 projects within a 5 mile radius of 20500
@@ -56,11 +56,11 @@ Example of running `js-zipcode` to pull data.::
 
 Dependancies/Setup
 ------------------
-* This is a Python script, tested with version 2.7.11, but it should work with others
-* I highly recommend using a virtualenv, if you can
-* Use `pip` to install the python requirements
-    `pip install -r requirements.txt`
-* If you want to use the Chrome or PhantomJS Selenium WebDrivers, you will need to ensure they are installed.
-  * The `chromedriver-installer` package is in the `requirements.txt` file. Your mileage may vary.
+- This is a Python script, tested with version 2.7.11, but it should work with others
+- I highly recommend using a virtualenv, if you can
+- Use ``pip`` to install the python requirements::
+    pip install -r requirements.txt
+- If you want to use the Chrome or PhantomJS Selenium WebDrivers, you will need to ensure they are installed.
+  - The ``chromedriver-installer`` package is in the ``requirements.txt`` file. Your mileage may vary.
 
 Please note: I do not provide technical support for environment setup; you are on your own for that. I will respond to pull requests for bug fixes, though.
