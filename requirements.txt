@@ -1,2 +1,0 @@
-chromedriver-installer==0.0.4
-selenium==2.53.2
