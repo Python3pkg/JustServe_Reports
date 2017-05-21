@@ -28,12 +28,12 @@ project_count = get_project_count(args.zipcode, args.radius, args.driver)
 now = datetime.now().strftime('%Y-%m-%d')
 # Handle the output
 if args.output=='csv':
-    print "%s,%s,%s,%s" % (now, args.zipcode, args.radius, project_count)
+    print("%s,%s,%s,%s" % (now, args.zipcode, args.radius, project_count))
 elif args.output=='json':
     import json
     o = {'date': now, 'zipcode': args.zipcode, 'radius': args.radius,
             'project_count': project_count}
-    print json.dumps(o)
+    print(json.dumps(o))
 else:
-    print "%s projects within a %s mile radius of %s" % (project_count, 
-            args.radius, args.zipcode)
+    print("%s projects within a %s mile radius of %s" % (project_count, 
+            args.radius, args.zipcode))
